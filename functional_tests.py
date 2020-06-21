@@ -1,11 +1,40 @@
-# from selenium import webdriver
-#
-# browser = webdriver.Firefox()
-# browser.get('http://localhost:8000')
-#
-# assert 'Django' in browser.title
+import pytest
 
-def test_smoke(selenium):
-    selenium.get('http://localhost:8000')
 
-    assert 'Django' in selenium.title
+@pytest.mark.usefixtures('driver_init')
+class BaseTest:
+    """
+    Any class test that wants to use driver_init must inherit from this class.
+    """
+    pass
+
+
+class TestNewVisitor(BaseTest):
+    def test_fixture(self):
+        # Edith has heard about a cool new online to-do app. She goes
+        # to check out its homepage
+        self.driver.get('http://localhost:8000')
+        # She notices the page title and header mention to-do lists
+        assert 'To-Do' in self.driver.title, \
+            'Browser title was ' + self.driver.title
+        assert False, "Finish the test!"
+        # She is invited to enter a to-do item straight away
+
+        # She types "Buy peacock feathers" into a text box (Edith's hobby
+        # is tying fly-fishing lures)
+
+        # When she hits enter, the page updates, and now the page lists
+        # "1: Buy peacock feathers" as an item in a to-do list
+
+        # There is still a text box inviting her to add another item. She
+        # enters "Use peacock feathers to make a fly" (Edith is very methodical)
+
+        # The page updates again, and now shows both items on her list
+
+        # Edith wonders whether the site will remember her list. Then she sees
+        # that the site has generated a unique URL for her -- there is some
+        # explanatory text to that effect.
+
+        # She visits that URL - her to-do list is still there.
+
+        # Satisfied, she goes back to sleep

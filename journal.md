@@ -22,4 +22,16 @@ pytest-django
 - rewrote test to use pytest-selenium.
 
   - use PyCharm's *Edit Configurations* dropdown to argument **to** add 
-    `--driver Firefox` 
+    `--driver Firefox`
+    
+## Ch. 2
+
+- **pytest-selenium** is function-scoped. 
+  "Dynamic scope" as of pytest 5.4 was floated as a workaround,
+  but not clear how to do this.
+  Instead, using 
+  [this ref's](https://www.blazemeter.com/blog/improve-your-selenium-webdriver-tests-with-pytest)
+  suggestion to create a class-scoped selenium fixture.
+  Note the fixture has to be applied to a base class,
+  and any class wanting a single selenium session must inherit from it.
+  
