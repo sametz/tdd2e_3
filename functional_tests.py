@@ -1,12 +1,14 @@
 import pytest
 
+from lists.tests import BaseTest
 
-@pytest.mark.usefixtures('driver_init')
-class BaseTest:
-    """
-    Any class test that wants to use driver_init must inherit from this class.
-    """
-    pass
+
+# @pytest.mark.usefixtures('driver_init')
+# class BaseTest:
+#     """
+#     Any class test that wants to use driver_init must inherit from this class.
+#     """
+#     pass
 
 
 class TestNewVisitor(BaseTest):
