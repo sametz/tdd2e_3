@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
-# Create your views here.
+from lists.models import Item
 
 
 def home_page(request):
@@ -13,9 +13,9 @@ def home_page(request):
         django.shortcuts.render
 
     """
-    return render(request, 'home.html', {
-        # in order for a 'get' request to pass the test for using the template,
-        # an empty string is needed to be used for the initial page.
-        # Using the .get method allows a default to be returned.
-        'new_item_text': request.POST.get('item_text', '')
-    })
+    if request.method == 'POST':
+        Item.objects.create(text=request.POST['item_text'])
+        return redirect('/')
+
+    items = Item.objects.all()
+    return render(request, 'home.html', {'items': items})
