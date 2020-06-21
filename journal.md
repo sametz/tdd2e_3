@@ -35,3 +35,19 @@ pytest-django
   Note the fixture has to be applied to a base class,
   and any class wanting a single selenium session must inherit from it.
   
+## Ch. 3
+
+- urls.py in Django 3 uses django.urls.path
+  and not django.conf.urls.url. 
+  `path` looks like it avoids regex.
+  
+## Ch. 4
+
+- creating `testname_old` versions along with `testname` files 
+  to separate my pytests from their unittests. 
+  
+- pytest-django has a `client` fixture alternative to the Django TestCase.client
+
+- To replace Django's TestCase asserts, 
+  import their equivalents from pytest_django.asserts.
+  PyCharm fails to discover these imports because of the mechanism pytest_django uses.
