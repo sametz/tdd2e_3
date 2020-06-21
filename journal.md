@@ -35,3 +35,8 @@ pytest-django
   Note the fixture has to be applied to a base class,
   and any class wanting a single selenium session must inherit from it.
   
+## Ch. 3
+
+- urls.py in Django 3 uses django.urls.path
+  and not django.conf.urls.url. 
+  `path` looks like it avoids regex.
