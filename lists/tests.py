@@ -1,5 +1,8 @@
 from django.test import TestCase
+from django.urls import resolve
 import pytest
+
+from lists.views import home_page
 
 
 @pytest.mark.usefixtures('driver_init')
@@ -10,13 +13,15 @@ class BaseTest:
     pass
 
 
-class SmokeTest(TestCase):
+class HomePageTest(TestCase):
 
-    def test_bad_maths(self):
-        self.assertEqual(1 + 1, 3)
+    def test_root_url_resolves_to_home_page_view(self):
+        found = resolve('/')
+        self.assertEqual(found.func, home_page)
 
 
-class TestSmoke(BaseTest):
+class TestHomePage(BaseTest):
 
-    def test_bad_maths(self):
-        assert 1 + 1 == 3
+    def test_root_url_resolves_to_home_page_view(self):
+        found = resolve('/')
+        assert found.func == home_page
