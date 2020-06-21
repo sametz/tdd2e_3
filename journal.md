@@ -40,3 +40,9 @@ pytest-django
 - urls.py in Django 3 uses django.urls.path
   and not django.conf.urls.url. 
   `path` looks like it avoids regex.
+  
+## Ch. 4
+
+- creating `testname_old` versions along with `testname` files 
+  to separate my pytests from their unittests. 
+  

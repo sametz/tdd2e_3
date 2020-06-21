@@ -3,6 +3,7 @@ import time
 import pytest
 from selenium.webdriver.common.keys import Keys
 
+# TODO: determine home for BaseTest
 from lists.tests import BaseTest
 
 
