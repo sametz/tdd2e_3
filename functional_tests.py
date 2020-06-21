@@ -1,6 +1,11 @@
-from selenium import webdriver
+# from selenium import webdriver
+#
+# browser = webdriver.Firefox()
+# browser.get('http://localhost:8000')
+#
+# assert 'Django' in browser.title
 
-browser = webdriver.Firefox()
-browser.get('http://localhost:8000')
+def test_smoke(selenium):
+    selenium.get('http://localhost:8000')
 
-assert 'Django' in browser.title
+    assert 'Django' in selenium.title
