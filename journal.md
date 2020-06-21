@@ -46,3 +46,8 @@ pytest-django
 - creating `testname_old` versions along with `testname` files 
   to separate my pytests from their unittests. 
   
+- pytest-django has a `client` fixture alternative to the Django TestCase.client
+
+- To replace Django's TestCase asserts, 
+  import their equivalents from pytest_django.asserts.
+  PyCharm fails to discover these imports because of the mechanism pytest_django uses.
