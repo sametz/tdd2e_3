@@ -88,8 +88,6 @@ Request and response objects pass state through the system.
 
 - `redirect(path: str)` returns an **HttpResponseRedirect** object
 
-
-
 #### django.shortcuts.render
 
 - takes a request and a template name as required arguments
@@ -131,6 +129,12 @@ Request and response objects pass state through the system.
   - .assertIn(string, response.content.decode())
 - `response.status_code` returns status code
 - `response['location']` e.g. shows destination URL in a redirect response
+
+### LiveServerTestCase
+
+Allows functional tests to be run via **manager.py**
+and not muck with the live DB.
+
 ## Selenium reminders
 
 - uses a selenium.webdriver object
