@@ -110,6 +110,7 @@ Request and response objects pass state through the system.
   - assertTemplateUsed(response: Response, filename.html: string)
   - assertContains(response, string): 
     more concise than using assertIn and response.content.decode()
+  - assertRedirects(response, string)
 
 #### TestCase.client
 
