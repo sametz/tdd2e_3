@@ -51,6 +51,9 @@ e.g. with kwargs `{'new_item_text': 'foo'}`:
 ### django.db.models
 
 - `.TextField()`
+- **.ForeignKey(model, on_delete, \*\*kwargs)** is used to relate a model to another model.
+  **DJANGO 3**: on_delete is required since Django 2. 
+  It previously defaulted to models.CASCADE.
 
 #### django.db.models.Model
 
