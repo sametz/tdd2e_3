@@ -3,8 +3,13 @@ import time
 import pytest
 from selenium.webdriver.common.keys import Keys
 
-# TODO: determine home for BaseTest
-from lists.tests import BaseTest
+
+@pytest.mark.usefixtures('driver_init')
+class BaseTest:
+    """
+    Any class test that wants to use driver_init must inherit from this class.
+    """
+    pass
 
 
 class TestNewVisitor(BaseTest):

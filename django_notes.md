@@ -22,13 +22,13 @@
 
 ## Template language
 
-- {% csrf_token %} security token for POSTs
+- `{% csrf_token %}` security token for POSTs
 - render(request, filename, kwargs): the keys can be used as variables in templates.
-e.g. {'new_item_text': 'foo'} can be referred to as:
+e.g. with kwargs `{'new_item_text': 'foo'}`:
   ```jinja2
   {{ new_item_text }} 
   ```
-  and rendered as "foo".
+  will be rendered as "foo".
 - with `items` passed in as key:
   ```jinja2
   {% for item in items %}
@@ -64,7 +64,7 @@ e.g. {'new_item_text': 'foo'} can be referred to as:
 
 Methods on Model.objects:
 - `.all()` returns a QuerySet of all the objects in the database.
-- `..count()` returns # of records in QuerySet
+- `.count()` returns # of records in QuerySet
 - `.first()` returns first object matched
 - `.create(**kwargs)` creates a new record
 
@@ -87,8 +87,6 @@ Request and response objects pass state through the system.
 #### django.shortcuts.redirect
 
 - `redirect(path: str)` returns an **HttpResponseRedirect** object
-
-
 
 #### django.shortcuts.render
 
@@ -131,6 +129,12 @@ Request and response objects pass state through the system.
   - .assertIn(string, response.content.decode())
 - `response.status_code` returns status code
 - `response['location']` e.g. shows destination URL in a redirect response
+
+### LiveServerTestCase
+
+Allows functional tests to be run via **manager.py**
+and not muck with the live DB.
+
 ## Selenium reminders
 
 - uses a selenium.webdriver object
