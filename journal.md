@@ -60,3 +60,5 @@ pytest-django
 - Using a path `<list_id` instead of regex for capture group. 
   Not sure how to capture without assigning a name (`<>` didn't work),
   so turning view_list() arg into a kwarg to allow this.
+  
+- in urls.py, imported include from django.urls not django.conf.urls
