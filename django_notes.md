@@ -7,6 +7,7 @@
   - test to run Django unittests
   - startapp {name} to create a new app
     - need to add app name to `INSTALLED_APPS` in `settings.py`
+  - collectstatic to collect all static files into the STATIC_ROOT folder
 ## Flow
 
 - an incoming request is parsed by `urls.py`

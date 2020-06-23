@@ -62,3 +62,11 @@ pytest-django
   so turning view_list() arg into a kwarg to allow this.
   
 - in urls.py, imported include from django.urls not django.conf.urls
+
+## Ch. 8
+
+- It wasn't necessary, but I used {% load static %} and {% static %} for loading css.
+
+- In the latest bootstrap, offsets are different. 
+  Changed `col-md-offset-3` to `offset-md-3` to get centering to work
+  and FT formatting test to pass.

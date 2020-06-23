@@ -131,3 +131,5 @@ dmypy.json
 .idea/
 
 geckodriver.log
+.DS_Store
+/static
