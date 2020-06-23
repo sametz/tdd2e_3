@@ -22,7 +22,7 @@ class TestNewVisitor(BaseTest):
         assert 'To-Do' in self.driver.title, \
             'Browser title was ' + self.driver.title
         header_text = self.driver.find_element_by_tag_name('h1').text
-        assert 'To-Do'in header_text
+        assert 'To-Do' in header_text
 
         # She is invited to enter a to-do item straight away
         inputbox = self.driver.find_element_by_id('id_new_item')

@@ -51,3 +51,14 @@ pytest-django
 - To replace Django's TestCase asserts, 
   import their equivalents from pytest_django.asserts.
   PyCharm fails to discover these imports because of the mechanism pytest_django uses.
+
+## Ch. 7
+
+- Since Django 2, models.ForeignKey requires an `on_delete` argument.
+  Previously, this defaulted to models.CASCADE, so using this when not specified.
+  
+- Using a path `<list_id` instead of regex for capture group. 
+  Not sure how to capture without assigning a name (`<>` didn't work),
+  so turning view_list() arg into a kwarg to allow this.
+  
+- in urls.py, imported include from django.urls not django.conf.urls
