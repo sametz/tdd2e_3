@@ -25,7 +25,7 @@ SECRET_KEY = 'w46sdvd*@gco+2zcw-942sl@0gobxopc53bmh5%e_c48r7syk@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
