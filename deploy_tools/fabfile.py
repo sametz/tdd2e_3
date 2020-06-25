@@ -3,7 +3,9 @@ from fabric.contrib.files import append, exists
 from fabric.api import cd, env, local, run
 
 REPO_URL = 'https://github.com/sametz/tdd2e_3.git'
-
+env.user = "ubuntu"
+env.key_filename = ["~/.ssh/sametz-lightsail.pem"]
+# env.hosts = ["xxx-xx-xxx-xxx.ap-southeast-1.compute.amazonaws.com"]
 
 def deploy():
     site_folder = f'/home/{env.user}/sites/{env.host}'
