@@ -70,3 +70,9 @@ pytest-django
 - In the latest bootstrap, offsets are different. 
   Changed `col-md-offset-3` to `offset-md-3` to get centering to work
   and FT formatting test to pass.
+  
+## Ch. 10
+
+- It looks like uvicorn can be added on top of gunicorn.
+  So, will continue with WSGI and then later try to add ASGI.
+  
