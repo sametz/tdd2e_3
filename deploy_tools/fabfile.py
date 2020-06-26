@@ -7,6 +7,7 @@ env.user = "ubuntu"
 env.key_filename = ["~/.ssh/sametz-lightsail.pem"]
 # env.hosts = ["xxx-xx-xxx-xxx.ap-southeast-1.compute.amazonaws.com"]
 
+
 def deploy():
     site_folder = f'/home/{env.user}/sites/{env.host}'
     run(f'mkdir -p {site_folder}')

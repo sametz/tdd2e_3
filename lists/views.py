@@ -1,8 +1,7 @@
-from django.core.exceptions import ValidationError
 from django.shortcuts import redirect, render
-from django.utils.html import escape
 
-from lists.models import Item, List
+from lists.forms import ItemForm
+from lists.models import List
 
 
 def home_page(request):
@@ -14,39 +13,25 @@ def home_page(request):
         django.shortcuts.render
 
     """
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'form': ItemForm()})
 
 
 def view_list(request, list_id=None):
     list_ = List.objects.get(id=list_id)
-    error = None
-
+    form = ItemForm()
     if request.method == 'POST':
-        try:
-            item = Item(text=request.POST['item_text'], list=list_)
-            item.full_clean()
-            item.save()
+        form = ItemForm(data=request.POST)
+        if form.is_valid():
+            form.save(for_list=list_)
             return redirect(list_)
-        except ValidationError:
-            error = "You can't have an empty list item"
-
-    return render(request, 'list.html', {'list': list_, 'error': error})
+    return render(request, 'list.html', {'list': list_, "form": form})
 
 
 def new_list(request):
-    list_ = List.objects.create()
-    item = Item.objects.create(text=request.POST['item_text'], list=list_)
-    try:
-        item.full_clean()
-        item.save()
-    except ValidationError:
-        list_.delete()
-        error = escape("You can't have an empty list item")
-        return render(request, 'home.html', {"error": error})
-    return redirect(list_)
-
-
-# def add_item(request, list_id):
-#     list_ = List.objects.get(id=list_id)
-#     Item.objects.create(text=request.POST['item_text'], list=list_)
-#     return redirect(f'/lists/{list_.id}/')
+    form = ItemForm(data=request.POST)
+    if form.is_valid():
+        list_ = List.objects.create()
+        form.save(for_list=list_)
+        return redirect(list_)
+    else:
+        return render(request, 'home.html', {"form": form})
