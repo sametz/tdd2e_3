@@ -75,4 +75,7 @@ pytest-django
 
 - It looks like uvicorn can be added on top of gunicorn.
   So, will continue with WSGI and then later try to add ASGI.
-  
+
+## Ch. 13
+
+- **django.urls.reverse()** replaces `django.core.urlresolvers.reverse()`
