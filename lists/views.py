@@ -2,6 +2,7 @@ from django.core.exceptions import ValidationError
 from django.shortcuts import redirect, render
 from django.utils.html import escape
 
+from lists.forms import ItemForm
 from lists.models import Item, List
 
 
@@ -14,7 +15,7 @@ def home_page(request):
         django.shortcuts.render
 
     """
-    return render(request, 'home.html')
+    return render(request, 'home.html', {'form': ItemForm()})
 
 
 def view_list(request, list_id=None):
