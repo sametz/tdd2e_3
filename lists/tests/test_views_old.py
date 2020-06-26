@@ -132,14 +132,3 @@ class ListViewTest(TestCase):
     def test_for_invalid_input_shows_error_on_page(self):
         response = self.post_invalid_input()
         self.assertContains(response, escape(EMPTY_ITEM_ERROR))
-
-    # def test_validation_errors_end_up_on_lists_page(self):
-    #     list_ = List.objects.create()
-    #     response = self.client.post(
-    #         f'/lists/{list_.id}/',
-    #         data={'text': ''}
-    #     )
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertTemplateUsed(response, 'list.html')
-    #     expected_error = escape("You can't have an empty list item")
-    #     self.assertContains(response, expected_error)
